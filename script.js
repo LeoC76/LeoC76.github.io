@@ -24,5 +24,36 @@
      cursor.style.height = '14px';
      cursor.style.backgroundColor = '#f2994a';
    });
- });
+  });
+//tiroir accordeon
+function toggleAccordion(button) {
+  const expanded = button.getAttribute('aria-expanded') === 'true';
+  const contentId = button.getAttribute('aria-controls');
+  const content = document.getElementById(contentId);
+
+  if (expanded) {
+    button.setAttribute('aria-expanded', 'false');
+    content.style.maxHeight = null;
+    content.setAttribute('aria-hidden', 'true');
+    content.style.display = 'none';
+    button.querySelector('svg').style.transform = 'rotate(0deg)';
+  } else {
+    // Close all other accordions
+    document.querySelectorAll('button[aria-expanded="true"]').forEach(btn => {
+      btn.setAttribute('aria-expanded', 'false');
+      const cId = btn.getAttribute('aria-controls');
+      const c = document.getElementById(cId);
+      c.style.maxHeight = null;
+      c.setAttribute('aria-hidden', 'true');
+      c.style.display = 'none';
+      btn.querySelector('svg').style.transform = 'rotate(0deg)';
+    });
+
+    button.setAttribute('aria-expanded', 'true');
+    content.style.display = 'block';
+    content.style.maxHeight = content.scrollHeight + 'px';
+    content.setAttribute('aria-hidden', 'false');
+    button.querySelector('svg').style.transform = 'rotate(180deg)';
+  }
+}
  
