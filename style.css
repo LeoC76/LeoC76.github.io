@@ -1,0 +1,55 @@
+
+body {
+   font-family: 'Montserrat', sans-serif;
+   background-color: #f5f0e9;
+   color: #1a1a1a;
+   cursor: none;
+ }
+ h1, h2, h3, h4 {
+   font-family: 'Playfair Display', serif;
+ }
+ /* Custom scrollbar for projects gallery */
+ ::-webkit-scrollbar {
+   height: 8px;
+ }
+ ::-webkit-scrollbar-track {
+   background: #f5f0e9;
+ }
+ ::-webkit-scrollbar-thumb {
+   background-color: #f2994a;
+   border-radius: 10px;
+ }
+ /* Custom orange dot cursor */
+ #cursor {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 14px;
+   height: 14px;
+   background-color: #f2994a;
+   border-radius: 50%;
+   pointer-events: none;
+   transform: translate(-50%, -50%);
+   transition: width 0.15s ease, height 0.15s ease, background-color 0.15s ease;
+   z-index: 9999;
+   opacity: 0.7;
+ }
+ /* Slightly enlarge cursor on links */
+ a:hover ~ #cursor,
+ a:focus ~ #cursor,
+ button:hover ~ #cursor,
+ button:focus ~ #cursor {
+   width: 24px;
+   height: 24px;
+ }
+ /* Rounded corners for main containers */
+ header nav,
+ #mobile-menu,
+ main section,
+ form,
+ footer {
+   border-radius: 1rem;
+ }
+ button, a, input, textarea {
+    cursor: none !important; /* Assure que le curseur par défaut est masqué */
+  }
